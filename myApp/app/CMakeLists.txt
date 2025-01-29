@@ -2,14 +2,14 @@
 
 include_directories(include)
 file(GLOB MY_SOURCES "src/*.c")
-add_executable(myapp ${MY_SOURCES})
+add_executable(myApp ${MY_SOURCES})
 
 # Make use of the HAL library
-target_link_libraries(myapp LINK_PRIVATE hal)
+target_link_libraries(myApp LINK_PRIVATE hal)
 
-# Copy executable to final location (change `myapp` to project name as needed)
-add_custom_command(TARGET myapp POST_BUILD 
+# Copy executable to final location (change `myApp` to project name as needed)
+add_custom_command(TARGET myApp POST_BUILD 
   COMMAND "${CMAKE_COMMAND}" -E copy 
-     "$<TARGET_FILE:myapp>"
-     "~/cmpt433/public/myapp" 
+     "$<TARGET_FILE:myApp>"
+     "~/cmpt433/public/myApp" 
   COMMENT "Copying ARM executable to public NFS directory")
