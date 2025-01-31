@@ -8,8 +8,8 @@
 #define LED_FILE_NAME "/sys/class/leds"
 
 struct JoystickData {
-    double x;
-    double y; //Up - smaller number (19), NotMoved - (874), Down - bigger number (1644)
+    double x; //neg - smaller number (18), NotMoved - (858), pos - bigger number (1644)
+    double y; //neg - smaller number (8), NotMoved - (839), pos - bigger number (1635)
     bool isPressed;
 };
 

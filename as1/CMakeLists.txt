@@ -4,7 +4,7 @@ project(reaction_timer VERSION 1.0 DESCRIPTION "reaction timer" LANGUAGES C)
 
 # Compiler options (inherited by sub-folders)
 set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_COMPILER aarch64-linux-gnu-gcc)
+set(CMAKE_C_COMPILER "aarch64-linux-gnu-gcc")
 add_compile_options(-Wall -Werror -Wpedantic -Wextra)
 add_compile_options(-fdiagnostics-color)
 

@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/junpinfoo/cmpt433/work2/CMPT433/as1/hal/src/i2c.c" "hal/CMakeFiles/hal.dir/src/i2c.c.o" "gcc" "hal/CMakeFiles/hal.dir/src/i2c.c.o.d"
-  "/home/junpinfoo/cmpt433/work2/CMPT433/as1/hal/src/joystick.c" "hal/CMakeFiles/hal.dir/src/joystick.c.o" "gcc" "hal/CMakeFiles/hal.dir/src/joystick.c.o.d"
-  "/home/junpinfoo/cmpt433/work2/CMPT433/as1/hal/src/led.c" "hal/CMakeFiles/hal.dir/src/led.c.o" "gcc" "hal/CMakeFiles/hal.dir/src/led.c.o.d"
+  "/home/junpinfoo/cmpt433/work/CMPT433/as1/hal/src/i2c.c" "hal/CMakeFiles/hal.dir/src/i2c.c.o" "gcc" "hal/CMakeFiles/hal.dir/src/i2c.c.o.d"
+  "/home/junpinfoo/cmpt433/work/CMPT433/as1/hal/src/joystick.c" "hal/CMakeFiles/hal.dir/src/joystick.c.o" "gcc" "hal/CMakeFiles/hal.dir/src/joystick.c.o.d"
+  "/home/junpinfoo/cmpt433/work/CMPT433/as1/hal/src/led.c" "hal/CMakeFiles/hal.dir/src/led.c.o" "gcc" "hal/CMakeFiles/hal.dir/src/led.c.o.d"
   )
 
 # Targets to which this target links.

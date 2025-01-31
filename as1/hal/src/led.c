@@ -9,7 +9,7 @@ LED leds[] = {
     {"PWR"}  // Red LED
 };
 
-void set_trigger(LED *led, const char *trigger) {
+void Led_setTrigger(LED *led, const char *trigger) {
     char trigger_file[256];
     snprintf(trigger_file, sizeof(trigger_file), "%s/%s/trigger", LED_FILE_NAME, led->name);
 
@@ -27,13 +27,9 @@ void set_trigger(LED *led, const char *trigger) {
     }
 
     fclose(pLedTriggerFile);
-    long seconds = 1;
-    long nanoseconds = 500000000;
-    struct timespec reqDelay = {seconds, nanoseconds};
-    nanosleep(&reqDelay, (struct timespec *) NULL);
 }
 
-void set_brightness(LED *led, int brightness) {
+void Led_setBrightness(LED *led, int brightness) {
     char brightness_file[256];
     snprintf(brightness_file, sizeof(brightness_file), "%s/%s/brightness", LED_FILE_NAME, led->name);
 
@@ -51,8 +47,48 @@ void set_brightness(LED *led, int brightness) {
     }
 
     fclose(pLedBrightnessFile);
-    long seconds = 1;
-    long nanoseconds = 500000000;
-    struct timespec reqDelay = {seconds, nanoseconds};
-    nanosleep(&reqDelay, (struct timespec *) NULL);
+    // long seconds = 1;
+    // long nanoseconds = 500000000;
+    // struct timespec reqDelay = {seconds, nanoseconds};
+    // nanosleep(&reqDelay, (struct timespec *) NULL);
+}
+
+void Led_setDelayOn(LED *led, int on) {
+    char delay_file[256];
+    snprintf(delay_file, sizeof(delay_file), "%s/%s/delay_on", LED_FILE_NAME, led->name);
+
+    FILE *pLedDelayFile = fopen(delay_file, "w");
+    if (pLedDelayFile == NULL) {
+        perror("Error opening LED delay_on file");
+        exit(EXIT_FAILURE);
+    }
+
+    int charWritten = fprintf(pLedDelayFile, "%d", on);
+    if (charWritten <= 0) {
+        perror("Error writing data to LED file");
+        fclose(pLedDelayFile);
+        exit(EXIT_FAILURE);
+    }
+
+    fclose(pLedDelayFile);
+}
+
+void Led_setDelayOff(LED *led, int off) {
+    char delay_file[256];
+    snprintf(delay_file, sizeof(delay_file), "%s/%s/delay_off", LED_FILE_NAME, led->name);
+
+    FILE *pLedDelayFile = fopen(delay_file, "w");
+    if (pLedDelayFile == NULL) {
+        perror("Error opening LED delay_off file");
+        exit(EXIT_FAILURE);
+    }
+
+    int charWritten = fprintf(pLedDelayFile, "%d", off);
+    if (charWritten <= 0) {
+        perror("Error writing data to LED file");
+        fclose(pLedDelayFile);
+        exit(EXIT_FAILURE);
+    }
+
+    fclose(pLedDelayFile);
 }
