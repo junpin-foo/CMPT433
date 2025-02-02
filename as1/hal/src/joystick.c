@@ -29,6 +29,7 @@ double scale_value(double raw, double min, double max) {
 
 
 void Joystick_initialize() {
+    Ic2_initialize();
     i2c_file_desc = init_i2c_bus(I2CDRV_LINUX_BUS, I2C_DEVICE_ADDRESS);
     isInitialized = true;
 }

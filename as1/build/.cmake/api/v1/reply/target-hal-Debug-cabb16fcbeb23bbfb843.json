@@ -79,7 +79,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-O3 -DNDEBUG"
+					"fragment" : "-g"
 				},
 				{
 					"backtrace" : 3,
@@ -117,11 +117,11 @@
 			[
 				{
 					"backtrace" : 7,
-					"path" : "/home/junpinfoo/cmpt433/work/CMPT433/as1/hal/hal/include"
+					"path" : "/home/junpinfoo/cmpt433/work2/CMPT433/as1/hal/hal/include"
 				},
 				{
 					"backtrace" : 8,
-					"path" : "/home/junpinfoo/cmpt433/work/CMPT433/as1/hal/include"
+					"path" : "/home/junpinfoo/cmpt433/work2/CMPT433/as1/hal/include"
 				}
 			],
 			"language" : "C",

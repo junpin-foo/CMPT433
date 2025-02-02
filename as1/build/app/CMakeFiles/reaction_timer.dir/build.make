@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/junpinfoo/cmpt433/work/CMPT433/as1
+CMAKE_SOURCE_DIR = /home/junpinfoo/cmpt433/work2/CMPT433/as1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/junpinfoo/cmpt433/work/CMPT433/as1/build
+CMAKE_BINARY_DIR = /home/junpinfoo/cmpt433/work2/CMPT433/as1/build
 
 # Include any dependencies generated for this target.
 include app/CMakeFiles/reaction_timer.dir/depend.make
@@ -70,18 +70,18 @@ include app/CMakeFiles/reaction_timer.dir/progress.make
 include app/CMakeFiles/reaction_timer.dir/flags.make
 
 app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o: app/CMakeFiles/reaction_timer.dir/flags.make
-app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o: /home/junpinfoo/cmpt433/work/CMPT433/as1/app/src/reaction_timer.c
+app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o: /home/junpinfoo/cmpt433/work2/CMPT433/as1/app/src/reaction_timer.c
 app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o: app/CMakeFiles/reaction_timer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/junpinfoo/cmpt433/work/CMPT433/as1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o"
-	cd /home/junpinfoo/cmpt433/work/CMPT433/as1/build/app && aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o -MF CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o.d -o CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o -c /home/junpinfoo/cmpt433/work/CMPT433/as1/app/src/reaction_timer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/junpinfoo/cmpt433/work2/CMPT433/as1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o"
+	cd /home/junpinfoo/cmpt433/work2/CMPT433/as1/build/app && aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o -MF CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o.d -o CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o -c /home/junpinfoo/cmpt433/work2/CMPT433/as1/app/src/reaction_timer.c
 
 app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/reaction_timer.dir/src/reaction_timer.c.i"
-	cd /home/junpinfoo/cmpt433/work/CMPT433/as1/build/app && aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/junpinfoo/cmpt433/work/CMPT433/as1/app/src/reaction_timer.c > CMakeFiles/reaction_timer.dir/src/reaction_timer.c.i
+	cd /home/junpinfoo/cmpt433/work2/CMPT433/as1/build/app && aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/junpinfoo/cmpt433/work2/CMPT433/as1/app/src/reaction_timer.c > CMakeFiles/reaction_timer.dir/src/reaction_timer.c.i
 
 app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/reaction_timer.dir/src/reaction_timer.c.s"
-	cd /home/junpinfoo/cmpt433/work/CMPT433/as1/build/app && aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/junpinfoo/cmpt433/work/CMPT433/as1/app/src/reaction_timer.c -o CMakeFiles/reaction_timer.dir/src/reaction_timer.c.s
+	cd /home/junpinfoo/cmpt433/work2/CMPT433/as1/build/app && aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/junpinfoo/cmpt433/work2/CMPT433/as1/app/src/reaction_timer.c -o CMakeFiles/reaction_timer.dir/src/reaction_timer.c.s
 
 # Object files for target reaction_timer
 reaction_timer_OBJECTS = \
@@ -94,20 +94,20 @@ app/reaction_timer: app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o
 app/reaction_timer: app/CMakeFiles/reaction_timer.dir/build.make
 app/reaction_timer: hal/libhal.a
 app/reaction_timer: app/CMakeFiles/reaction_timer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/junpinfoo/cmpt433/work/CMPT433/as1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable reaction_timer"
-	cd /home/junpinfoo/cmpt433/work/CMPT433/as1/build/app && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/reaction_timer.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/junpinfoo/cmpt433/work2/CMPT433/as1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable reaction_timer"
+	cd /home/junpinfoo/cmpt433/work2/CMPT433/as1/build/app && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/reaction_timer.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Copying ARM executable to public NFS directory"
-	cd /home/junpinfoo/cmpt433/work/CMPT433/as1/build/app && /usr/bin/cmake -E copy /home/junpinfoo/cmpt433/work/CMPT433/as1/build/app/reaction_timer ~/cmpt433/public/reaction_timer
+	cd /home/junpinfoo/cmpt433/work2/CMPT433/as1/build/app && /usr/bin/cmake -E copy /home/junpinfoo/cmpt433/work2/CMPT433/as1/build/app/reaction_timer ~/cmpt433/public/reaction_timer
 
 # Rule to build all files generated by this target.
 app/CMakeFiles/reaction_timer.dir/build: app/reaction_timer
 .PHONY : app/CMakeFiles/reaction_timer.dir/build
 
 app/CMakeFiles/reaction_timer.dir/clean:
-	cd /home/junpinfoo/cmpt433/work/CMPT433/as1/build/app && $(CMAKE_COMMAND) -P CMakeFiles/reaction_timer.dir/cmake_clean.cmake
+	cd /home/junpinfoo/cmpt433/work2/CMPT433/as1/build/app && $(CMAKE_COMMAND) -P CMakeFiles/reaction_timer.dir/cmake_clean.cmake
 .PHONY : app/CMakeFiles/reaction_timer.dir/clean
 
 app/CMakeFiles/reaction_timer.dir/depend:
-	cd /home/junpinfoo/cmpt433/work/CMPT433/as1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/junpinfoo/cmpt433/work/CMPT433/as1 /home/junpinfoo/cmpt433/work/CMPT433/as1/app /home/junpinfoo/cmpt433/work/CMPT433/as1/build /home/junpinfoo/cmpt433/work/CMPT433/as1/build/app /home/junpinfoo/cmpt433/work/CMPT433/as1/build/app/CMakeFiles/reaction_timer.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/junpinfoo/cmpt433/work2/CMPT433/as1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/junpinfoo/cmpt433/work2/CMPT433/as1 /home/junpinfoo/cmpt433/work2/CMPT433/as1/app /home/junpinfoo/cmpt433/work2/CMPT433/as1/build /home/junpinfoo/cmpt433/work2/CMPT433/as1/build/app /home/junpinfoo/cmpt433/work2/CMPT433/as1/build/app/CMakeFiles/reaction_timer.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : app/CMakeFiles/reaction_timer.dir/depend
 

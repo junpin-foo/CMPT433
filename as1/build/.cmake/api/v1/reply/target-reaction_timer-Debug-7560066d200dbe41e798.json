@@ -91,7 +91,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-O3 -DNDEBUG"
+					"fragment" : "-g"
 				},
 				{
 					"backtrace" : 6,
@@ -129,11 +129,11 @@
 			[
 				{
 					"backtrace" : 10,
-					"path" : "/home/junpinfoo/cmpt433/work/CMPT433/as1/app/include"
+					"path" : "/home/junpinfoo/cmpt433/work2/CMPT433/as1/app/include"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "/home/junpinfoo/cmpt433/work/CMPT433/as1/hal/include"
+					"path" : "/home/junpinfoo/cmpt433/work2/CMPT433/as1/hal/include"
 				}
 			],
 			"language" : "C",
@@ -164,7 +164,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-O3 -DNDEBUG",
+				"fragment" : "-g",
 				"role" : "flags"
 			},
 			{

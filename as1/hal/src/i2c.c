@@ -5,8 +5,21 @@
 #include <unistd.h>
 #include <sys/ioctl.h>
 #include <linux/i2c-dev.h>
+#include <stdbool.h>
+
+static bool isInitialized = false;
+
+void Ic2_initialize() {
+    isInitialized = true;
+}
+
 
 int init_i2c_bus(const char* bus, int address) {
+    if (!isInitialized) {
+        perror("Error: Ic2 not initialized!\n");
+        exit(EXIT_FAILURE);
+    }
+
     int i2c_file_desc = open(bus, O_RDWR);
     if (i2c_file_desc == -1) {
         printf("I2C DRV: Unable to open bus for read/write (%s)\n", bus);
@@ -23,6 +36,11 @@ int init_i2c_bus(const char* bus, int address) {
 }
 
 void write_i2c_reg16(int i2c_file_desc, uint8_t reg_addr, uint16_t value) {
+    if (!isInitialized) {
+        perror("Error: Ic2 not initialized!\n");
+        exit(EXIT_FAILURE);
+    }
+
     int tx_size = 1 + sizeof(value);
     uint8_t buff[tx_size];
     buff[0] = reg_addr;
@@ -37,6 +55,11 @@ void write_i2c_reg16(int i2c_file_desc, uint8_t reg_addr, uint16_t value) {
 }
 
 uint16_t read_i2c_reg16(int i2c_file_desc, uint8_t reg_addr) {
+    if (!isInitialized) {
+        perror("Error: Ic2 not initialized!\n");
+        exit(EXIT_FAILURE);
+    }
+
     int bytes_written = write(i2c_file_desc, &reg_addr, sizeof(reg_addr));
     if (bytes_written != sizeof(reg_addr)) {
         perror("Unable to write i2c register.");

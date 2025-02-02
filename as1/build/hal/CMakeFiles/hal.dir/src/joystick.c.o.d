@@ -1,7 +1,7 @@
 hal/CMakeFiles/hal.dir/src/joystick.c.o: \
- /home/junpinfoo/cmpt433/work/CMPT433/as1/hal/src/joystick.c \
+ /home/junpinfoo/cmpt433/work2/CMPT433/as1/hal/src/joystick.c \
  /usr/aarch64-linux-gnu/include/stdc-predef.h \
- /home/junpinfoo/cmpt433/work/CMPT433/as1/hal/include/hal/joystick.h \
+ /home/junpinfoo/cmpt433/work2/CMPT433/as1/hal/include/hal/joystick.h \
  /usr/aarch64-linux-gnu/include/stdio.h \
  /usr/aarch64-linux-gnu/include/bits/libc-header-start.h \
  /usr/aarch64-linux-gnu/include/features.h \
@@ -26,7 +26,6 @@ hal/CMakeFiles/hal.dir/src/joystick.c.o: \
  /usr/aarch64-linux-gnu/include/bits/stdio_lim.h \
  /usr/aarch64-linux-gnu/include/bits/floatn.h \
  /usr/aarch64-linux-gnu/include/bits/floatn-common.h \
- /usr/aarch64-linux-gnu/include/bits/stdio.h \
  /usr/aarch64-linux-gnu/include/stdlib.h \
  /usr/aarch64-linux-gnu/include/bits/waitflags.h \
  /usr/aarch64-linux-gnu/include/bits/waitstatus.h \
@@ -54,10 +53,9 @@ hal/CMakeFiles/hal.dir/src/joystick.c.o: \
  /usr/aarch64-linux-gnu/include/bits/struct_mutex.h \
  /usr/aarch64-linux-gnu/include/bits/struct_rwlock.h \
  /usr/aarch64-linux-gnu/include/alloca.h \
- /usr/aarch64-linux-gnu/include/bits/stdlib-bsearch.h \
  /usr/aarch64-linux-gnu/include/bits/stdlib-float.h \
  /usr/lib/gcc-cross/aarch64-linux-gnu/12/include/stdbool.h \
- /home/junpinfoo/cmpt433/work/CMPT433/as1/hal/include/hal/i2c.h \
+ /home/junpinfoo/cmpt433/work2/CMPT433/as1/hal/include/hal/i2c.h \
  /usr/lib/gcc-cross/aarch64-linux-gnu/12/include/stdint.h \
  /usr/aarch64-linux-gnu/include/stdint.h \
  /usr/aarch64-linux-gnu/include/bits/wchar.h \

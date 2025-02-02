@@ -12,6 +12,7 @@ typedef struct {
 
 extern LED leds[];
 
+void Led_initialize();
 void Led_setTrigger(LED *led, const char *trigger);
 void Led_setBrightness(LED *led, int brightness);
 void Led_setDelayOn(LED *led, int on);

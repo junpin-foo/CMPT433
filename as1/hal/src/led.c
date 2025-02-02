@@ -3,13 +3,25 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <stdbool.h>
 
 LED leds[] = {
     {"ACT"}, // Green LED
     {"PWR"}  // Red LED
 };
 
+static bool isInitialized = false;
+
+void Led_initialize() {
+    isInitialized = true;
+}
+
 void Led_setTrigger(LED *led, const char *trigger) {
+    if (!isInitialized) {
+        fprintf(stderr, "Error: Led not initialized!\n");
+        exit(EXIT_FAILURE);
+    }
+
     char trigger_file[256];
     snprintf(trigger_file, sizeof(trigger_file), "%s/%s/trigger", LED_FILE_NAME, led->name);
 
@@ -30,6 +42,11 @@ void Led_setTrigger(LED *led, const char *trigger) {
 }
 
 void Led_setBrightness(LED *led, int brightness) {
+    if (!isInitialized) {
+        fprintf(stderr, "Error: Led not initialized!\n");
+        exit(EXIT_FAILURE);
+    }
+
     char brightness_file[256];
     snprintf(brightness_file, sizeof(brightness_file), "%s/%s/brightness", LED_FILE_NAME, led->name);
 
@@ -54,6 +71,11 @@ void Led_setBrightness(LED *led, int brightness) {
 }
 
 void Led_setDelayOn(LED *led, int on) {
+    if (!isInitialized) {
+        fprintf(stderr, "Error: Led not initialized!\n");
+        exit(EXIT_FAILURE);
+    }
+
     char delay_file[256];
     snprintf(delay_file, sizeof(delay_file), "%s/%s/delay_on", LED_FILE_NAME, led->name);
 
@@ -74,6 +96,11 @@ void Led_setDelayOn(LED *led, int on) {
 }
 
 void Led_setDelayOff(LED *led, int off) {
+    if (!isInitialized) {
+        fprintf(stderr, "Error: Led not initialized!\n");
+        exit(EXIT_FAILURE);
+    }
+    
     char delay_file[256];
     snprintf(delay_file, sizeof(delay_file), "%s/%s/delay_off", LED_FILE_NAME, led->name);
 

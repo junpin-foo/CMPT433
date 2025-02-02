@@ -5,10 +5,17 @@
 #include "hal/led.h"
 #include "hal/joystick.h"
 
+//TODO: 
+// 1. commment at top of file
+// 2. enum for direction
+// 3. clean up
+
 #define GREEN_LED &leds[0]
 #define RED_LED &leds[1]
 #define FLASH_DURATION_MS 250
 #define MAX_RESPONSE_TIME_MS 5000
+
+static long long bestRecordTime = 0;
 
 static long long getTimeInMs(void){
     struct timespec spec;
@@ -30,8 +37,6 @@ static void sleepForMs(long long delayInMs)
     nanosleep(&reqDelay, (struct timespec *) NULL);
 }
 
-
-
 static void initialFlashLed(void) {
     printf("Get ready...\n");
     Led_setBrightness(GREEN_LED, 0);
@@ -50,20 +55,19 @@ static void initialFlashLed(void) {
 
 static void waitForJoystickRelease() {
     struct JoystickData data;
-    struct JoystickData data2;
-    data = Joystick_getReading();
-    if(data.y > 0.1 || data.y < -0.1) {
-        printf("Please let go of joystick\n");
-        while(1) {
-            data = Joystick_getReading();
-            sleepForMs(1000); //1s sleep
-            data2 = Joystick_getReading();
-
-            if(data.y - data2.y  == 0 && data2.y < 0.05 && data2.y > -0.05) {
-                return;
-            }     
+    while (1) {
+        data = Joystick_getReading();
+        // If joystick is not centered, prompt user
+        if (fabs(data.y) > 0.1) {
+            printf("Please release the joystick...\n");
         }
-        
+        sleepForMs(100);
+        struct JoystickData newData = Joystick_getReading();
+
+        // If joystick is stable and near center, exit
+        if (fabs(newData.y) < 0.05 && fabs(data.y - newData.y) < 0.01) {
+            return;
+        }
     }
 }
 
@@ -79,8 +83,13 @@ static void incorrectResponse() {
     Led_setBrightness(RED_LED, 0);
 }
 
-static void correctResponse() {
+static void correctResponse(long long currentTime) {
     printf("Correct!\n");
+    if(bestRecordTime == 0 || bestRecordTime > currentTime){
+        printf("New best time!\n");
+        bestRecordTime = currentTime;
+    }
+    printf("Your reaction time was %llums; best so far in game is %llums.!\n", currentTime, bestRecordTime);
     Led_setBrightness(RED_LED, 0);
     Led_setTrigger(GREEN_LED, "timer");
     sleepForMs(50);
@@ -94,35 +103,37 @@ static void correctResponse() {
 int main() {
     srand(time(NULL));
     Joystick_initialize();
+    Led_initialize();
 
-    printf("Hello embedded world, from JunPin Foo!\n");
+    printf("Hello embedded world, from JunPin Foo!\n\n");
 
     printf("When the LEDs light up, press the joystick in that direction!\n");
 
     printf("(Press left or right to exit)\n");
 
     while(1){
-        restart_game:
+
         initialFlashLed();
 
         waitForJoystickRelease();
-
-        int randonNumber = rand()%((3000+1)-500) + 500;
-
+        int randomNumber = rand()%((3000+1)-500) + 500; //between 3000 and 500 ms
         // printf("Random: %d\n", randonNumber);
 
         //GAME STARTED
+        printf("random now\n");
+        sleepForMs(randomNumber);
         struct JoystickData data = Joystick_getReading();
-        struct JoystickData data2 = Joystick_getReading();
-        long long startCountdown = getTimeInMs();
-        while((getTimeInMs() - startCountdown) < randonNumber){
-            data2 = Joystick_getReading();
-            if(fabs(data.y - data2.y)  > 0.02) { //moved
-                printf("too soon\n");
-                goto restart_game;
-            } 
+        if(data.x > 0.7 || data.x < -0.7){ //Quit
+            printf("User selected to quit.\n");
+            return 0;
+        }  
+        if(data.y > 0.02 || data.y < -0.02) { // moved
+            printf("too soon\n");
+            continue; // Restart the game loop
         }
-        if(randonNumber % 2 == 0) {
+        printf("random stop\n");
+
+        if(randomNumber % 2 == 0) {
             printf("Press UP now!\n");
             long long start = getTimeInMs();
             Led_setBrightness(GREEN_LED, 1);
@@ -130,9 +141,7 @@ int main() {
                 data = Joystick_getReading();
                 if(data.y > 0.7){ //CORRECT
                     long long end = getTimeInMs();
-                    correctResponse();
-                    long long responseTime = end - start;
-                    printf("resp time: %llu\n", responseTime);
+                    correctResponse(end - start);
                     break;
                 } 
 
@@ -161,9 +170,7 @@ int main() {
                 data = Joystick_getReading();
                 if(data.y < -0.7){ //CORRECT
                     long long end = getTimeInMs();
-                    correctResponse();
-                    long long responseTime = end - start;
-                    printf("resp time: %llu\n", responseTime);
+                    correctResponse(end - start);
                     break;
                 } 
 

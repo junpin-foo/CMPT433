@@ -1,5 +1,9 @@
 {
     "files.associations": {
-        "led.h": "c"
+        "led.h": "c",
+        "joystick.h": "c",
+        "stdlib.h": "c",
+        "fcntl.h": "c",
+        "i2c-dev.h": "c"
     }
 }

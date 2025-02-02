@@ -4,7 +4,7 @@
 # compile C with aarch64-linux-gnu-gcc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/junpinfoo/cmpt433/work/CMPT433/as1/hal/hal/include -I/home/junpinfoo/cmpt433/work/CMPT433/as1/hal/include
+C_INCLUDES = -I/home/junpinfoo/cmpt433/work2/CMPT433/as1/hal/hal/include -I/home/junpinfoo/cmpt433/work2/CMPT433/as1/hal/include
 
-C_FLAGS = -O3 -DNDEBUG -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -fsanitize=address -pthread -std=gnu11
+C_FLAGS = -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -fsanitize=address -pthread -std=gnu11
 
