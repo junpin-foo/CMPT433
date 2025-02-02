@@ -73,14 +73,14 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "hal::@ad971efe0e95b39e260f",
-					"jsonFile" : "target-hal-Debug-cabb16fcbeb23bbfb843.json",
+					"jsonFile" : "target-hal-Debug-b7ba8ec3ed1b596f6db3.json",
 					"name" : "hal",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "reaction_timer::@5f5a17c01335469806cb",
-					"jsonFile" : "target-reaction_timer-Debug-7560066d200dbe41e798.json",
+					"jsonFile" : "target-reaction_timer-Debug-3bafe2337bf08e305f08.json",
 					"name" : "reaction_timer",
 					"projectIndex" : 0
 				}
@@ -90,8 +90,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/junpinfoo/cmpt433/work2/CMPT433/as1/build",
-		"source" : "/home/junpinfoo/cmpt433/work2/CMPT433/as1"
+		"build" : "/home/junpinfoo/cmpt433/work3/CMPT433/build",
+		"source" : "/home/junpinfoo/cmpt433/work3/CMPT433"
 	},
 	"version" : 
 	{

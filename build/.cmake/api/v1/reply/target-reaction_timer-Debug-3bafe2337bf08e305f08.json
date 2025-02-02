@@ -129,11 +129,11 @@
 			[
 				{
 					"backtrace" : 10,
-					"path" : "/home/junpinfoo/cmpt433/work2/CMPT433/as1/app/include"
+					"path" : "/home/junpinfoo/cmpt433/work3/CMPT433/app/include"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "/home/junpinfoo/cmpt433/work2/CMPT433/as1/hal/include"
+					"path" : "/home/junpinfoo/cmpt433/work3/CMPT433/hal/include"
 				}
 			],
 			"language" : "C",

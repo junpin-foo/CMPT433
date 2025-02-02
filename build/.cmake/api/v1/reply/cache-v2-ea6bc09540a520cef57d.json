@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/junpinfoo/cmpt433/work2/CMPT433/as1/build"
+			"value" : "/home/junpinfoo/cmpt433/work3/CMPT433/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -415,7 +415,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/junpinfoo/cmpt433/work2/CMPT433/as1/build/CMakeFiles/pkgRedirects"
+			"value" : "/home/junpinfoo/cmpt433/work3/CMPT433/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -475,7 +475,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/junpinfoo/cmpt433/work2/CMPT433/as1"
+			"value" : "/home/junpinfoo/cmpt433/work3/CMPT433"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1083,7 +1083,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/junpinfoo/cmpt433/work2/CMPT433/as1/build"
+			"value" : "/home/junpinfoo/cmpt433/work3/CMPT433/build"
 		},
 		{
 			"name" : "reaction_timer_IS_TOP_LEVEL",
@@ -1107,7 +1107,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/junpinfoo/cmpt433/work2/CMPT433/as1"
+			"value" : "/home/junpinfoo/cmpt433/work3/CMPT433"
 		}
 	],
 	"kind" : "cache",
