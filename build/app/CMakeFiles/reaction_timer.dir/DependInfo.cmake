@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/junpinfoo/cmpt433/work3/CMPT433/app/src/reaction_timer.c" "app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o" "gcc" "app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o.d"
+  "/home/junpinfoo/cmpt433/work/CMPT433/app/src/reaction_timer.c" "app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o" "gcc" "app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/junpinfoo/cmpt433/work3/CMPT433/build/hal/CMakeFiles/hal.dir/DependInfo.cmake"
+  "/home/junpinfoo/cmpt433/work/CMPT433/build/hal/CMakeFiles/hal.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

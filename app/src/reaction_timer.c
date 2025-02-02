@@ -1,7 +1,7 @@
 /* reaction_timer.c
     This program implements a reaction timer game using a joystick and LEDs.
     The player must quickly press the joystick in the correct direction when prompted.
-    The program records the player's best reaction time and provides feedback via LEDs.
+    The program records the player's best reaction time and provides feedback via LED.
  */
 
 #include "reaction_timer.h"

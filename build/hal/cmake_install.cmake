@@ -1,4 +1,4 @@
-# Install script for directory: /home/junpinfoo/cmpt433/work3/CMPT433/hal
+# Install script for directory: /home/junpinfoo/cmpt433/work/CMPT433/hal
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

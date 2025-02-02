@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/junpinfoo/cmpt433/work3/CMPT433
+CMAKE_SOURCE_DIR = /home/junpinfoo/cmpt433/work/CMPT433
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/junpinfoo/cmpt433/work3/CMPT433/build
+CMAKE_BINARY_DIR = /home/junpinfoo/cmpt433/work/CMPT433/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/junpinfoo/cmpt433/work3/CMPT433/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/junpinfoo/cmpt433/work3/CMPT433/build/CMakeFiles /home/junpinfoo/cmpt433/work3/CMPT433/build/app//CMakeFiles/progress.marks
-	cd /home/junpinfoo/cmpt433/work3/CMPT433/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/junpinfoo/cmpt433/work3/CMPT433/build/CMakeFiles 0
+	cd /home/junpinfoo/cmpt433/work/CMPT433/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/junpinfoo/cmpt433/work/CMPT433/build/CMakeFiles /home/junpinfoo/cmpt433/work/CMPT433/build/app//CMakeFiles/progress.marks
+	cd /home/junpinfoo/cmpt433/work/CMPT433/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/junpinfoo/cmpt433/work/CMPT433/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/junpinfoo/cmpt433/work3/CMPT433/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/clean
+	cd /home/junpinfoo/cmpt433/work/CMPT433/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/junpinfoo/cmpt433/work3/CMPT433/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
+	cd /home/junpinfoo/cmpt433/work/CMPT433/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/junpinfoo/cmpt433/work3/CMPT433/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
+	cd /home/junpinfoo/cmpt433/work/CMPT433/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/junpinfoo/cmpt433/work3/CMPT433/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/junpinfoo/cmpt433/work/CMPT433/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 app/CMakeFiles/reaction_timer.dir/rule:
-	cd /home/junpinfoo/cmpt433/work3/CMPT433/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/reaction_timer.dir/rule
+	cd /home/junpinfoo/cmpt433/work/CMPT433/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/reaction_timer.dir/rule
 .PHONY : app/CMakeFiles/reaction_timer.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ reaction_timer: app/CMakeFiles/reaction_timer.dir/rule
 
 # fast build rule for target.
 reaction_timer/fast:
-	cd /home/junpinfoo/cmpt433/work3/CMPT433/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/reaction_timer.dir/build.make app/CMakeFiles/reaction_timer.dir/build
+	cd /home/junpinfoo/cmpt433/work/CMPT433/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/reaction_timer.dir/build.make app/CMakeFiles/reaction_timer.dir/build
 .PHONY : reaction_timer/fast
 
 src/reaction_timer.o: src/reaction_timer.c.o
@@ -135,7 +135,7 @@ src/reaction_timer.o: src/reaction_timer.c.o
 
 # target to build an object file
 src/reaction_timer.c.o:
-	cd /home/junpinfoo/cmpt433/work3/CMPT433/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/reaction_timer.dir/build.make app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o
+	cd /home/junpinfoo/cmpt433/work/CMPT433/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/reaction_timer.dir/build.make app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.o
 .PHONY : src/reaction_timer.c.o
 
 src/reaction_timer.i: src/reaction_timer.c.i
@@ -143,7 +143,7 @@ src/reaction_timer.i: src/reaction_timer.c.i
 
 # target to preprocess a source file
 src/reaction_timer.c.i:
-	cd /home/junpinfoo/cmpt433/work3/CMPT433/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/reaction_timer.dir/build.make app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.i
+	cd /home/junpinfoo/cmpt433/work/CMPT433/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/reaction_timer.dir/build.make app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.i
 .PHONY : src/reaction_timer.c.i
 
 src/reaction_timer.s: src/reaction_timer.c.s
@@ -151,7 +151,7 @@ src/reaction_timer.s: src/reaction_timer.c.s
 
 # target to generate assembly for a file
 src/reaction_timer.c.s:
-	cd /home/junpinfoo/cmpt433/work3/CMPT433/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/reaction_timer.dir/build.make app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.s
+	cd /home/junpinfoo/cmpt433/work/CMPT433/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/reaction_timer.dir/build.make app/CMakeFiles/reaction_timer.dir/src/reaction_timer.c.s
 .PHONY : src/reaction_timer.c.s
 
 # Help Target
@@ -177,6 +177,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/junpinfoo/cmpt433/work3/CMPT433/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/junpinfoo/cmpt433/work/CMPT433/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
