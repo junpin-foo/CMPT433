@@ -21,14 +21,9 @@
 static int i2c_file_desc = -1;
 static bool isInitialized = false;
 
-// Joystick values
+// Default Joystick values
 static uint16_t x_min = 18, x_max = 1644;
 static uint16_t y_min = 8, y_max = 1635;
-
-double scale_value(double raw, double min, double max) {
-    return 2.0 * ((raw - min) / (max - min)) - 1.0;
-}
-
 
 void Joystick_initialize(void) {
     Ic2_initialize();
@@ -39,6 +34,13 @@ void Joystick_initialize(void) {
 void Joystick_cleanUp(void) {
     Ic2_cleanUp();
     isInitialized = false;
+}
+
+/*
+This function scales the raw ADC values to a normalized range (-1 to 1).
+*/
+static double scale_value(double raw, double min, double max) {
+    return 2.0 * ((raw - min) / (max - min)) - 1.0;
 }
 
 struct JoystickData Joystick_getReading() {

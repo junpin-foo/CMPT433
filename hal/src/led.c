@@ -27,6 +27,7 @@ void Led_cleanUp(void) {
     isInitialized = false;
 }
 
+
 void Led_setTrigger(LED *led, const char *trigger) {
     if (!isInitialized) {
         fprintf(stderr, "Error: Led not initialized!\n");
@@ -81,7 +82,7 @@ void Led_setBrightness(LED *led, int brightness) {
     // nanosleep(&reqDelay, (struct timespec *) NULL);
 }
 
-void Led_setDelayOn(LED *led, int on) {
+void Led_setDelayOn(LED *led, int delay) {
     if (!isInitialized) {
         fprintf(stderr, "Error: Led not initialized!\n");
         exit(EXIT_FAILURE);
@@ -106,7 +107,7 @@ void Led_setDelayOn(LED *led, int on) {
     fclose(pLedDelayFile);
 }
 
-void Led_setDelayOff(LED *led, int off) {
+void Led_setDelayOff(LED *led, int delay) {
     if (!isInitialized) {
         fprintf(stderr, "Error: Led not initialized!\n");
         exit(EXIT_FAILURE);

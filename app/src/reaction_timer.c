@@ -10,6 +10,10 @@ static long long bestRecordTime = 0;
 
 static void exitGameCleanUp(void);
 
+/*
+This function is used to get the  direction of the joystick by reading the x and y values of the joystick.
+    @Return: the direction of the joystick.
+*/
 static JoystickDirection getJoystickDirection(void) {
     struct JoystickData data = Joystick_getReading();
     if (data.x > 0.5) return JOYSTICK_RIGHT;
@@ -39,6 +43,9 @@ static void sleepForMs(long long delayInMs)
     nanosleep(&reqDelay, (struct timespec *) NULL);
 }
 
+/*
+This function is used to flash the LEDs to indicate the start of the game.
+*/
 static void initialFlashLed(void) {
     printf("Get ready...\n");
     Led_setBrightness(GREEN_LED, 0);
@@ -55,6 +62,9 @@ static void initialFlashLed(void) {
     }
 }
 
+/*
+This function is used to wait for the joystick to be released before starting the game.
+*/
 static void waitForJoystickRelease(void) {
     bool messagePrinted = false;
     while (1) {
@@ -71,9 +81,13 @@ static void waitForJoystickRelease(void) {
     }
 }
 
+/*
+This function is used to indicate that the player has responded incorrectly.
+*/
 static void incorrectResponse(void) {
     printf("Incorrect.\n");
     Led_setBrightness(GREEN_LED, 0);
+    //Flash red LED 5 times within 1 second
     Led_setTrigger(RED_LED, "timer");
     sleepForMs(50);
     Led_setDelayOn(RED_LED, 50);
@@ -83,6 +97,10 @@ static void incorrectResponse(void) {
     Led_setBrightness(RED_LED, 0);
 }
 
+/*
+This function is used to indicate that the player has responded correctly.
+    @Param currentTime: the current response time taken.
+*/
 static void correctResponse(long long currentTime) {
     printf("Correct!\n");
     if(bestRecordTime == 0 || bestRecordTime > currentTime){
@@ -91,6 +109,7 @@ static void correctResponse(long long currentTime) {
     }
     printf("Your reaction time was %llums; best so far in game is %llums.!\n", currentTime, bestRecordTime);
     Led_setBrightness(RED_LED, 0);
+    //Flash green LED 5 times within 1 second
     Led_setTrigger(GREEN_LED, "timer");
     sleepForMs(50);
     Led_setDelayOn(GREEN_LED, 50);
@@ -100,6 +119,10 @@ static void correctResponse(long long currentTime) {
     Led_setBrightness(GREEN_LED, 0);
 }
 
+/*
+This function is used to start the game with the specified direction.
+    @Param topSide: true if the game is to be started with the positive y-axis side, false if the game is to be started with the negative y-axis side.
+*/
 static void startGameWithDirection(bool topSide) {
     if(topSide) {
         printf("Press UP now!\n");
@@ -130,7 +153,6 @@ static void startGameWithDirection(bool topSide) {
         }
     }
     else {
-        // int start = getTimeInMs();
         printf("Press DOWN now!\n");
         long long start = getTimeInMs();
         Led_setBrightness(RED_LED, 1);
@@ -161,18 +183,28 @@ static void startGameWithDirection(bool topSide) {
     }
 }
 
+/*
+This function is used to initialize the game by randomizing the seed for the random number generator and initializing the joystick and LEDs.
+*/
+static void initializeGame(void){
+    srand(time(NULL));
+    Joystick_initialize();
+    Led_initialize();
+}
+
+/*
+This function is used to clean up the game and exit.
+*/
 static void exitGameCleanUp(void){
     Led_setBrightness(GREEN_LED, 0);
     Led_setBrightness(RED_LED, 0);
-    Joystick_cleanUp();
     Led_cleanUp();
+    Joystick_cleanUp();
     exit(0);
 }
 
 int main() {
-    srand(time(NULL));
-    Joystick_initialize();
-    Led_initialize();
+    initializeGame();
 
     printf("Hello embedded world, from JunPin Foo!\n\n");
     printf("When the LEDs light up, press the joystick in that direction!\n");
@@ -186,20 +218,20 @@ int main() {
         //GAME STARTED
         sleepForMs(randomNumber);
         JoystickDirection data = getJoystickDirection();
-        if(data == JOYSTICK_LEFT || data == JOYSTICK_RIGHT){ //Quit
+        if(data == JOYSTICK_LEFT || data == JOYSTICK_RIGHT){ //player choose to Quit
             printf("User selected to quit.\n");
             exitGameCleanUp();
         }  
-        if(data != JOYSTICK_CENTER) { // moved
+        if(data != JOYSTICK_CENTER) { //player moved joystick
             printf("too soon\n");
             continue; // Restart the game loop
         }
 
         if(randomNumber % 2 == 0) {
-            startGameWithDirection(true); //Up 
+            startGameWithDirection(true); //Up game state
         } 
         else {
-            startGameWithDirection(false); //Down
+            startGameWithDirection(false); //Down game state
         }
 
     }

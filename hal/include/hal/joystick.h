@@ -14,13 +14,17 @@
 #define LED_FILE_NAME "/sys/class/leds"
 
 struct JoystickData {
-    double x; //neg - smaller number (18), NotMoved - (858), pos - bigger number (1644)
-    double y; //neg - smaller number (8), NotMoved - (839), pos - bigger number (1635)
+    double x;
+    double y;
     bool isPressed;
 };
 
 void Joystick_initialize(void);
 void Joystick_cleanUp(void);
+/*
+This function reads the current joystick position and returns the x and y values after scaling.
+    @Return: JoystickData struct containing the x and y values scaled between (-1 and 1) and isPressed.
+*/
 struct JoystickData Joystick_getReading();
 
 #endif
