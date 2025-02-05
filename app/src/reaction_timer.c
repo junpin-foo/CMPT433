@@ -8,7 +8,17 @@
 
 static long long bestRecordTime = 0;
 
+//Prototypes
+static void initializeGame(void);
 static void exitGameCleanUp(void);
+static JoystickDirection getJoystickDirection(void);
+static long long getTimeInMs(void);
+static void sleepForMs(long long delayInMs);
+static void initialFlashLed(void);
+static void waitForJoystickRelease(void);
+static void incorrectResponse(void);
+static void correctResponse(long long currentTime);
+static void startGameWithDirection(bool topSide);
 
 /*
 This function is used to get the  direction of the joystick by reading the x and y values of the joystick.

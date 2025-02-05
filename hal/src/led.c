@@ -125,7 +125,6 @@ void Led_setDelayOff(LED *led, int delay) {
     int charWritten = fprintf(pLedDelayFile, "%d", delay);
     if (charWritten <= 0) {
         perror("Error writing data to LED file");
-        fclose(pLedDelayFile);
         exit(EXIT_FAILURE);
     }
 
