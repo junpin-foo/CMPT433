@@ -1,4 +1,5 @@
 /* joystick.c
+
     This file implements joystick functionality using an ADC chip over I2C.
     It initializes the I2C bus, reads joystick position data from the ADC,
     scales the raw values to a normalized range (-1 to 1), and provides a function
