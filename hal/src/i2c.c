@@ -14,6 +14,7 @@
 #include <sys/ioctl.h>
 #include <linux/i2c-dev.h>
 #include <stdbool.h>
+#include <time.h>
 
 static bool isInitialized = false;
 
@@ -64,6 +65,8 @@ void write_i2c_reg16(int i2c_file_desc, uint8_t reg_addr, uint16_t value) {
         perror("Unable to write i2c register");
         exit(EXIT_FAILURE);
     }
+    struct timespec reqDelay = {0, 750000};
+    nanosleep(&reqDelay, (struct timespec *) NULL);
 }
 
 uint16_t read_i2c_reg16(int i2c_file_desc, uint8_t reg_addr) {
@@ -85,5 +88,7 @@ uint16_t read_i2c_reg16(int i2c_file_desc, uint8_t reg_addr) {
         exit(EXIT_FAILURE);
     }
 
+    struct timespec reqDelay = {0, 750000};
+    nanosleep(&reqDelay, (struct timespec *) NULL);
     return value;
 }

@@ -26,10 +26,10 @@ This function is used to get the  direction of the joystick by reading the x and
 */
 static JoystickDirection getJoystickDirection(void) {
     struct JoystickData data = Joystick_getReading();
-    if (data.x > 0.5) return JOYSTICK_RIGHT;
-    if (data.x < -0.5) return JOYSTICK_LEFT;
-    if (data.y > 0.5) return JOYSTICK_UP;
-    if (data.y < -0.5) return JOYSTICK_DOWN;
+    if (data.x > 0.7) return JOYSTICK_RIGHT;
+    if (data.x < -0.7) return JOYSTICK_LEFT;
+    if (data.y > 0.7) return JOYSTICK_UP;
+    if (data.y < -0.7) return JOYSTICK_DOWN;
     return JOYSTICK_CENTER;
 }
 
@@ -78,7 +78,8 @@ This function is used to wait for the joystick to be released before starting th
 static void waitForJoystickRelease(void) {
     bool messagePrinted = false;
     while (1) {
-        if (getJoystickDirection() != JOYSTICK_CENTER) {
+        JoystickDirection data = getJoystickDirection();
+        if (data == JOYSTICK_DOWN || data == JOYSTICK_UP) {
             if (!messagePrinted) {
                 printf("Please release the joystick...\n");
                 messagePrinted = true;
@@ -99,7 +100,7 @@ static void incorrectResponse(void) {
     Led_setBrightness(GREEN_LED, 0);
     //Flash red LED 5 times within 1 second
     Led_setTrigger(RED_LED, "timer");
-    sleepForMs(50);
+    sleepForMs(100);
     Led_setDelayOn(RED_LED, 50);
     Led_setDelayOff(RED_LED, 150);
 

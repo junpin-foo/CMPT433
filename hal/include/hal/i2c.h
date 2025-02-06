@@ -2,6 +2,8 @@
  * 
  * This file declares functions for initializing and cleaning up the I2C interface, 
  * opening an I2C bus, and performing 16-bit register read/write operations.
+ * 
+ * These methods are taken from class guide: I2C Guide
  */
 
 #ifndef _I2C_H_

@@ -9,7 +9,6 @@
 #include "hal/i2c.h"
 #include <stdbool.h>
 #include <assert.h>
-#include <time.h>
 
 #define I2CDRV_LINUX_BUS "/dev/i2c-1"
 #define I2C_DEVICE_ADDRESS 0x48 // ADC chip
@@ -49,6 +48,14 @@ struct JoystickData Joystick_getReading() {
         exit(EXIT_FAILURE);
     }
 
+    write_i2c_reg16(i2c_file_desc, REG_CONFIGURATION, TLA2024_CHANNEL_CONF_0);
+    uint16_t raw_y = read_i2c_reg16(i2c_file_desc, REG_DATA);
+    uint16_t y_position = ((raw_y & 0xFF00) >> 8 | (raw_y & 0x00FF) << 8) >> 4;
+
+    if (y_position < y_min) y_min = y_position;
+    if (y_position > y_max) y_max = y_position;
+    double y_scaled = scale_value(y_position, y_min, y_max) * -1;
+
     write_i2c_reg16(i2c_file_desc, REG_CONFIGURATION, TLA2024_CHANNEL_CONF_1);
     uint16_t raw_x = read_i2c_reg16(i2c_file_desc, REG_DATA);
     uint16_t x_position = ((raw_x & 0xFF00) >> 8 | (raw_x & 0x00FF) << 8) >> 4;
@@ -56,17 +63,6 @@ struct JoystickData Joystick_getReading() {
     if (x_position < x_min) x_min = x_position;
     if (x_position > x_max) x_max = x_position;
     double x_scaled = scale_value(x_position, x_min, x_max);
-
-    struct timespec reqDelay = {0, 100000};
-    nanosleep(&reqDelay, (struct timespec *) NULL);
-
-    write_i2c_reg16(i2c_file_desc, REG_CONFIGURATION, TLA2024_CHANNEL_CONF_0);
-    uint16_t raw_y = read_i2c_reg16(i2c_file_desc, REG_DATA);
-    uint16_t y_position = ((raw_y & 0xFF00) >> 8 | (raw_y & 0x00FF) << 8) >> 4;
-
-    if (y_position < y_min) y_min = y_position;
-    if (y_position > y_max) y_max = y_position;
-    double y_scaled = scale_value(y_position, y_min, y_max);
 
     // printf("Joystick current: X = %d, Y = %d\n", x_position, y_position);
     // printf("Joystick scaled current: X = %f, Y = %f\n", x_scaled, y_scaled);
